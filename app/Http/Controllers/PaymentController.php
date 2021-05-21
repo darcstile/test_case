@@ -5,13 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CheckoutRequest;
 use App\Models\Product;
 use App\Models\Order;
-use Illuminate\Http\Request;
 use App\Http\Requests\PaymentControllerRequest;
 use Mail;
 
-use LVR\CreditCard\CardCvc;
-use LVR\CreditCard\CardNumber;
-use LVR\CreditCard\CardExpirationDate;
 
 class PaymentController extends Controller
 {
@@ -51,7 +47,7 @@ class PaymentController extends Controller
                 ->with(['success' => 'Successful!']);
         } else {
             return back()
-                ->withErrors(['msg' => 'Ошибка сохранения'])
+                ->withErrors(['msg' => 'Error'])
                 ->withInput();
         }
     }

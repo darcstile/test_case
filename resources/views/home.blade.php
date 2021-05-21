@@ -7,8 +7,6 @@
     <title>Store</title>
 </head>
 <body>
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
     <div style="display:flex; width: 100%; justify-content: space-between">
         <div>
