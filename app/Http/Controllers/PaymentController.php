@@ -39,6 +39,13 @@ class PaymentController extends Controller
         $item = new Order($data);
         $item->save();
         if ($item) {
+            $to_name = 'admin';
+            $to_email = 'testcase489@gmail.com';
+            $data = array('name'=>"Admin", "body" => "Order № {$item->id} successfully paid");
+            Mail::send('emails', $data, function($message) use ($to_name, $to_email) {
+                $message->to($to_email, $to_name)->subject('Test_case testing mail');
+                $message->from('testcase489@gmail.com','Test_case store');
+            });
             return redirect()
                 ->route('home', [$item->id])
                 ->with(['success' => 'Successful!']);
